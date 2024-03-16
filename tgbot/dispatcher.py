@@ -39,6 +39,9 @@ def setup_dispatcher(dp):
     # secret level
     dp.add_handler(CallbackQueryHandler(onboarding_handlers.secret_level, pattern=f"^{SECRET_LEVEL_BUTTON}"))
 
+    # about author
+    dp.add_handler(CallbackQueryHandler(onboarding_handlers.about_author, pattern=f"^author"))
+
     # broadcast message
     dp.add_handler(
         MessageHandler(Filters.regex(rf'^{broadcast_command}(/s)?.*'), broadcast_handlers.broadcast_command_with_message)
